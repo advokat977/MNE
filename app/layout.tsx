@@ -4,6 +4,7 @@ import "../styles/globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -21,7 +22,12 @@ export const metadata: Metadata = {
     url: "https://mneconsulting.org",
     siteName: "MNE Consulting",
     images: [
-      { url: "/og-image.png", width: 1200, height: 630, alt: "MNE Consulting — Trusted Local Counsel for EU Investors" }
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "MNE Consulting — Trusted Local Counsel for EU Investors"
+      }
     ],
     locale: "en_US",
     type: "website"
@@ -37,23 +43,19 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // Schema.org JSON-LD (LegalService)
   const schema = {
     "@context": "https://schema.org",
     "@type": "LegalService",
     "name": "MNE Consulting",
     "url": "https://mneconsulting.org",
-    "areaServed": "ME",
-    "logo": "https://mneconsulting.org/favicon.png",
-    "image": "https://mneconsulting.org/og-image.png",
+    "areaServed": ["ME", "EU"],
     "email": "info@mneconsulting.org",
     "priceRange": "€7.5k–€50k+",
     "description":
       "Boutique legal practice for EU investors entering Montenegro. Premium due diligence, transaction execution, and concession strategy.",
-    "founder": {
-      "@type": "Person",
-      "name": "Dejan Radinović",
-      "jobTitle": "Attorney at Law"
-    }
+    "image": "https://mneconsulting.org/og-image.png",
+    "logo": "https://mneconsulting.org/favicon.png"
   };
 
   return (
@@ -66,8 +68,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
 
+        {/* Schema.org JSON-LD */}
         <script
           type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
 
@@ -75,8 +79,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <Footer />
 
-        {/* Vercel Analytics */}
+        {/* Vercel Analytics & Speed Insights */}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
