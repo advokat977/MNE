@@ -1,12 +1,16 @@
 export default function ContactForm() {
   return (
     <form
-      action="https://formsubmit.co/info@mneconsulting.org"
+      action="https://formsubmit.co/6ac35b30f85cde7d7f870d157d8ea4c9"
       method="POST"
       aria-describedby="formStatus"
     >
+      {/* honeypot protiv botova */}
       <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
       <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_subject" value="New inquiry from mneconsulting.org" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_next" value="https://mneconsulting.org/thank-you" />
 
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
