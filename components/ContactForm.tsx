@@ -5,7 +5,7 @@ export default function ContactForm() {
       method="POST"
       aria-describedby="formStatus"
     >
-      {/* honeypot protiv botova */}
+      {/* Anti-bot honeypot + podešavanja */}
       <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_subject" value="New inquiry from mneconsulting.org" />
@@ -47,7 +47,15 @@ export default function ContactForm() {
         </button>
         <div className="text-sm text-subtle">
           Or email <a className="underline hover:no-underline" href="mailto:info@mneconsulting.org">info@mneconsulting.org</a>
-          {" "}• LinkedIn <a className="underline hover:no-underline" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">Connect</a>
+          {" "}• LinkedIn{" "}
+          <a
+            className="underline hover:no-underline"
+            href="https://www.linkedin.com/in/dejan-radinovic-19357158/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Dejan Radinović
+          </a>
         </div>
       </div>
 
