@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Terms of Use — MNE Consulting",
+  description:
+    "Terms of use for mneconsulting.org. This website provides general information about our legal consulting services in Montenegro.",
+};
+
 export default function TermsPage() {
   return (
     <div className="container py-16">
@@ -5,13 +11,17 @@ export default function TermsPage() {
       <p className="mt-4 text-subtle max-w-prose">
         This website provides general information about our legal consulting services in Montenegro.
         It does not constitute legal advice. Engaging us requires a written engagement letter.
-        By using this site you agree not to rely on the content as legal advice and to contact us directly for specific matters.
+        By using this site you agree not to rely on the content as legal advice and to contact us
+        directly for specific matters.
       </p>
 
       <h2 className="mt-8 text-xl font-semibold">No attorney–client relationship</h2>
       <p className="mt-2 text-subtle max-w-prose">
-        Sending an inquiry does not create an attorney–client relationship. Do not send confidential information until we
-        confirm an engagement in writing.
+        Sending an inquiry does not create an attorney–client relationship. Do not send confidential
+        information until we confirm an engagement in writing.
+      </p>
+      <p className="mt-2 text-subtle max-w-prose">
+        Submitting the contact form does not establish an attorney–client relationship.
       </p>
 
       <h2 className="mt-6 text-xl font-semibold">Copyright</h2>
