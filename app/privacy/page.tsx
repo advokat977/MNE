@@ -1,33 +1,93 @@
+export const metadata = {
+  title: "Privacy Policy — MNE Consulting",
+  description:
+    "Privacy policy for mneconsulting.org. We respect confidentiality and process only the data necessary to respond to your inquiry.",
+};
+
 export default function PrivacyPage() {
   return (
-    <div className="container py-16">
-      <h1 className="text-3xl font-semibold tracking-tight">Privacy Policy</h1>
-      <p className="mt-4 text-subtle max-w-prose">
-        We process personal data strictly to respond to your inquiry and to perform a potential engagement.
-        We do not sell personal data, we do not send marketing emails, and we do not use third-party trackers.
-        You can request access or deletion at any time by emailing{" "}
-        <a className="underline" href="mailto:info@mneconsulting.org">info@mneconsulting.org</a>.
-      </p>
+    <section className="bg-white border-y border-gray-200">
+      <div className="container py-16">
+        <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">Privacy Policy</h1>
+        <p className="mt-4 text-subtle max-w-3xl">
+          We take privacy seriously. This page explains what we collect on{" "}
+          <strong>mneconsulting.org</strong>, why we collect it, and how we keep it secure.
+        </p>
 
-      <h2 className="mt-8 text-xl font-semibold">What we collect</h2>
-      <p className="mt-2 text-subtle max-w-prose">
-        Contact details and the content of your inquiry submitted via our contact form or email.
-      </p>
+        <div className="mt-10 space-y-8 max-w-3xl">
+          <section>
+            <h2 className="text-xl font-semibold">Data we collect</h2>
+            <ul className="mt-3 list-disc pl-6 text-subtle space-y-2">
+              <li>
+                <strong>Contact form:</strong> name, email, company, service of interest, and your
+                message — for the purpose of responding to your inquiry.
+              </li>
+              <li>
+                <strong>Routine logs &amp; performance metrics:</strong> standard web analytics and
+                performance measurements (via Vercel) to keep the site reliable and fast. No
+                invasive tracking, no ad-tech.
+              </li>
+            </ul>
+          </section>
 
-      <h2 className="mt-6 text-xl font-semibold">Retention</h2>
-      <p className="mt-2 text-subtle max-w-prose">
-        Inquiry data is retained only as long as necessary to handle your request or to perform an engagement.
-      </p>
+          <section>
+            <h2 className="text-xl font-semibold">Email processing</h2>
+            <p className="mt-3 text-subtle">
+              We use <strong>Resend</strong> as our email processor to send transactional emails
+              (submission confirmations and internal notifications). Your message is processed
+              solely for the purpose of delivering that email and responding to your inquiry.
+            </p>
+          </section>
 
-      <h2 className="mt-6 text-xl font-semibold">Your rights</h2>
-      <p className="mt-2 text-subtle max-w-prose">
-        You may request access, correction, deletion, or restriction of processing by contacting us.
-      </p>
+          <section>
+            <h2 className="text-xl font-semibold">Legal basis</h2>
+            <p className="mt-3 text-subtle">
+              Our legal basis for processing contact form data is{" "}
+              <em>legitimate interest</em> (responding to your request and preparing a potential
+              engagement). Submitting the form does not create an attorney–client relationship.
+            </p>
+          </section>
 
-      <h2 className="mt-6 text-xl font-semibold">Controller</h2>
-      <p className="mt-2 text-subtle max-w-prose">
-        MNE Consulting, Podgorica, Montenegro — <a className="underline" href="mailto:info@mneconsulting.org">info@mneconsulting.org</a>.
-      </p>
-    </div>
+          <section>
+            <h2 className="text-xl font-semibold">Retention</h2>
+            <p className="mt-3 text-subtle">
+              We retain contact emails only as long as needed to handle your request and comply with
+              legal obligations. You can request deletion at any time.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold">Security</h2>
+            <p className="mt-3 text-subtle">
+              We use modern hosting and transport security (TLS) and industry-standard email
+              controls (SPF/DKIM/DMARC) for domain integrity.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold">Your rights</h2>
+            <p className="mt-3 text-subtle">
+              You may request access, correction, or deletion of your personal data by emailing{" "}
+              <a className="underline hover:no-underline" href="mailto:info@mneconsulting.org">
+                info@mneconsulting.org
+              </a>
+              .
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold">Contact</h2>
+            <p className="mt-3 text-subtle">
+              Controller: MNE Consulting, Podgorica, Montenegro. For any privacy questions, contact{" "}
+              <a className="underline hover:no-underline" href="mailto:info@mneconsulting.org">
+                info@mneconsulting.org
+              </a>
+              .
+            </p>
+            <p className="mt-3 text-subtle">Last updated: {new Date().toISOString().slice(0, 10)}</p>
+          </section>
+        </div>
+      </div>
+    </section>
   );
 }
