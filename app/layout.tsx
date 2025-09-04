@@ -24,13 +24,13 @@ export const metadata: Metadata = {
       "Board-ready due diligence, transaction execution, and concession strategy — EU standards, Montenegro know-how.",
     type: "website",
     url: "https://mneconsulting.org/",
-    images: ["/og-image.png"]
+    images: ["/og-image.png"],
   },
-  icons: { icon: "/favicon.svg" }
+  icons: { icon: "/favicon.svg" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // Schema.org JSON-LD (LegalService) — bez emaila (anti-spam)
+  // Schema.org JSON-LD — bez emaila (anti-spam)
   const schema = {
     "@context": "https://schema.org",
     "@type": "LegalService",
@@ -41,27 +41,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     description:
       "Boutique legal practice for EU investors entering Montenegro — due diligence, transaction execution, and concession strategy.",
     image: "https://mneconsulting.org/og-image.png",
-    logo: "https://mneconsulting.org/favicon.png"
+    logo: "https://mneconsulting.org/favicon.png",
   };
 
   return (
     <html lang="en">
       <body className={`${inter.variable} ${playfair.variable} antialiased bg-[var(--bg)] text-[var(--ink)]`}>
-        {/* JSON-LD */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         <Header />
         <main id="main">{children}</main>
         <Footer />
-
-        {/* Diskretni UX dodaci u starom stilu */}
+        {/* UX dodatci u starom stilu (ne diraju tipografiju/razmjere) */}
         <BackToTop />
         <MobileStickyBar />
-
-        {/* Vercel Analytics & Speed Insights */}
         <Analytics />
         <SpeedInsights />
       </body>
