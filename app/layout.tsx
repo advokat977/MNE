@@ -1,7 +1,7 @@
 // app/layout.tsx
 import type { Metadata, Viewport } from "next";
-import "../styles/globals.css"; // ⬅️ ispravljen CSS path (bio "./globals.css")
-import Header from "../components/Header"; // ⬅️ relativni import umjesto "@/..."
+import "../styles/globals.css";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import BackToTop from "../components/BackToTop";
 import MobileStickyBar from "../components/MobileStickyBar";
@@ -64,7 +64,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script
           type="application/ld+json"
-          // @ts-expect-error - JSON string is valid
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
