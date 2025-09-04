@@ -22,3 +22,7 @@ html {
 .focus-ring {
   @apply outline-none ring-2 ring-offset-2 ring-slate-400 dark:ring-slate-600 ring-offset-white dark:ring-offset-slate-950;
 }
+/* Smooth anchor scroll — diskretno, bez mijenjanja postojećeg dizajna */
+html { scroll-behavior: smooth; }
+/* Ako koristiš #anchors sa sticky headerom: */
+.scroll-mt-header { scroll-margin-top: 5rem; }
