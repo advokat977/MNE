@@ -8,7 +8,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="container py-16">
-      <h1 className="text-4xl font-semibold tracking-tight">About</h1>
+      <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">About</h1>
 
       <p className="mt-6 max-w-3xl">
         MNE Consulting provides legal due diligence and deal support for EU investors entering Montenegro.
