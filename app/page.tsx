@@ -1,148 +1,158 @@
 // app/page.tsx
-import Link from "next/link";
-import PriceCard from "../components/PriceCard"; // ⬅️ relativni import
+import Section from "../components/Section";
 import ContactForm from "../components/ContactForm";
 
 export const metadata = {
-  title: "MNE Consulting — Due Diligence in Montenegro",
+  title: "MNE Consulting — Trusted Local Counsel for EU Investors in Montenegro",
   description:
-    "Source-anchored, board-ready due diligence for EU investors evaluating opportunities in Montenegro.",
+    "Board-ready due diligence, transaction execution, and concession strategy — EU standards, Montenegro know-how.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "MNE Consulting — Trusted Local Counsel for EU Investors in Montenegro",
+    description:
+      "Board-ready due diligence, transaction execution, and concession strategy — EU standards, Montenegro know-how.",
+    type: "website",
+    url: "https://mneconsulting.org/",
+  },
 };
 
 export default function HomePage() {
   return (
-    <div className="mx-auto max-w-6xl px-4">
-      {/* HERO */}
-      <section className="py-16">
-        <div className="max-w-3xl">
-          <h1 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
-            Due diligence in Montenegro — source-anchored, board-ready.
-          </h1>
-          <p className="mt-4 text-slate-700 dark:text-slate-300">
-            We help EU investors make clear, defensible decisions. Our reports combine primary
-            source verification, practical risk flags, and deal-oriented recommendations you can
-            take straight to the board.
-          </p>
-          <div className="mt-6 flex gap-3">
-            <Link
-              href="/book"
-              className="rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90 focus-ring dark:bg-white dark:text-slate-900"
-            >
-              Book a 30-min call
-            </Link>
-            <Link
-              href="/#contact"
-              className="rounded-xl border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-900 hover:bg-slate-50 focus-ring dark:border-slate-700 dark:text-white dark:hover:bg-slate-900/40"
-            >
-              Contact
-            </Link>
+    <main>
+      {/* HERO (stari stil) */}
+      <Section id="hero" className="section-tight">
+        <div className="container">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight leading-tight">
+              Trusted local counsel for EU investors in Montenegro.
+            </h1>
+            <p className="mt-5 text-lg text-subtle">
+              Board-ready due diligence, transaction execution, and concession
+              strategy — EU standards, Montenegro know-how. Reports prepared by a
+              licensed attorney with 20+ years of courtroom and corporate
+              experience.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              {/* Apsolutni hash linkovi da rade sa svih ruta */}
+              <a
+                href="/book"
+                className="inline-flex items-center justify-center rounded-full bg-accent text-white px-6 py-3"
+                aria-label="Book a 30-min Zoom call"
+              >
+                Book a 30-min call
+              </a>
+              <a
+                href="/#contact"
+                className="inline-flex items-center justify-center rounded-full border border-[var(--ink)] px-6 py-3"
+                aria-label="Contact form"
+              >
+                Contact
+              </a>
+            </div>
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* SERVICES */}
-      <section id="services" className="scroll-mt-header py-10">
-        <h2 className="text-2xl font-semibold tracking-tight">Services</h2>
-        <p className="mt-3 max-w-3xl text-slate-700 dark:text-slate-300">
-          Legal due diligence for acquisitions, joint ventures, privatizations, and project
-          investments in Montenegro. We also support negotiation strategy and documentation
-          alignment with EU investor expectations.
-        </p>
-      </section>
-
-      {/* METHOD */}
-      <section id="method" className="scroll-mt-header py-10">
-        <h2 className="text-2xl font-semibold tracking-tight">Method</h2>
-        <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-700 dark:text-slate-300">
-          <li>Primary-source verification (registries, land books, regulator filings).</li>
-          <li>Red/Amber/Green risk grading with plain-language rationale.</li>
-          <li>Actionable mitigations and SPA/SHAs drafting notes.</li>
-          <li>Board-ready summary up front; annexes for depth.</li>
-        </ul>
-      </section>
-
-      {/* FEES */}
-      <section id="fees" className="scroll-mt-header py-10">
-        <div className="mb-6 flex items-end justify-between">
-          <h2 className="text-2xl font-semibold tracking-tight">Fees</h2>
-          <span className="text-sm text-slate-500 dark:text-slate-400">
-            Transparent bands. Scope defines final quote.
-          </span>
+      {/* SERVICES (stari stil) */}
+      <Section id="services">
+        <div className="container">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">Services</h2>
+          <p className="mt-3 max-w-3xl text-subtle">
+            Legal due diligence for acquisitions, joint ventures, privatizations, and project investments in Montenegro.
+            We also support negotiation strategy and documentation alignment with EU investor expectations.
+          </p>
         </div>
+      </Section>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          <PriceCard
-            title="Basic"
-            blurb="Focused red flags and core registry checks for smaller targets."
-            bullets={[
-              "Corporate & title snapshot",
-              "Regulatory flags",
-              "Key contracts scan",
-              "Board-ready summary",
-            ]}
-            priceLabel="Starting from €7,500"
-          />
-          <PriceCard
-            title="Standard"
-            blurb="Deeper issue mapping for typical buy-side diligence."
-            bullets={[
-              "Full corporate, assets, and permits",
-              "Material contracts & disputes",
-              "Employment & compliance",
-              "Mitigations & drafting notes",
-            ]}
-            priceLabel="Starting from €15,000"
-          />
-          <PriceCard
-            title="Premium"
-            blurb="Complex transactions, multi-asset, or aggressive timelines."
-            bullets={[
-              "All-in verification & interviews",
-              "Regulator engagement plan",
-              "Negotiation support",
-              "Partner workshops",
-            ]}
-            priceLabel="Starting from €30,000"
-          />
-          <PriceCard
-            title="Custom"
-            blurb="Tailored to your specific needs."
-            bullets={[
-              "Bespoke scope & timeline",
-              "Specialist inputs as needed",
-              "Investor reporting format",
-              "On-site sessions",
-            ]}
-            // Klik vodi na contact form (dogovoreno)
-            priceLabel="Price: upon request →"
-            priceHref="/#contact"
-          />
+      {/* METHOD (stari stil) */}
+      <Section id="method">
+        <div className="container">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">Method</h2>
+          <ul className="mt-4 list-disc space-y-2 pl-5 text-[17px]">
+            <li>Primary-source verification (registries, land books, regulator filings).</li>
+            <li>Red/Amber/Green risk grading with plain-language rationale.</li>
+            <li>Actionable mitigations and SPA/SHAs drafting notes.</li>
+            <li>Board-ready summary up front; annexes for depth.</li>
+          </ul>
         </div>
-      </section>
+      </Section>
 
-      {/* ABOUT TEASER */}
-      <section id="about" className="scroll-mt-header py-10">
-        <h2 className="text-2xl font-semibold tracking-tight">About</h2>
-        <p className="mt-3 max-w-3xl text-slate-700 dark:text-slate-300">
-          Led by Dejan Radinović. Two decades across privatizations, high-stakes due diligence,
-          complex M&A, and international arbitration.{" "}
-          <Link href="/about" className="font-semibold underline underline-offset-4">
-            Learn more →
-          </Link>
-        </p>
-      </section>
+      {/* FEES — prošireno na 4 kartice, zadržan stari izgled kartica */}
+      <Section id="fees">
+        <div className="container">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">
+            Transparent Fees
+          </h2>
+          <p className="mt-3 text-center text-subtle">Clear ranges. Serious intent.</p>
 
-      {/* CONTACT */}
-      <section id="contact" className="scroll-mt-header py-10">
-        <h2 className="text-2xl font-semibold tracking-tight">Contact</h2>
-        <p className="mt-3 max-w-3xl text-slate-700 dark:text-slate-300">
-          Tell us about the target, the deal context, and your timelines. We’ll get back to you
-          with next steps and a scoped proposal.
-        </p>
-        <div className="mt-6 max-w-2xl">
-          <ContactForm />
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="bg-white border border-gray-200 rounded-2xl p-8">
+              <h3 className="text-xl font-semibold">Basic Due Diligence</h3>
+              <p className="mt-2 text-2xl font-semibold">Starting from €7,500</p>
+              <p className="mt-2 text-sm text-subtle">
+                Focused high-level review of key legal domains and red flags for smaller tickets.
+              </p>
+            </div>
+
+            <div className="bg-white border-2 border-black rounded-2xl p-8 shadow-sm">
+              <h3 className="text-xl font-semibold">Standard Due Diligence</h3>
+              <p className="mt-2 text-2xl font-semibold">Starting from €15,000</p>
+              <p className="mt-2 text-sm text-subtle">
+                Comprehensive corporate, regulatory, and property law review for mid-sized transactions.
+              </p>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-2xl p-8">
+              <h3 className="text-xl font-semibold">Premium Due Diligence</h3>
+              <p className="mt-2 text-2xl font-semibold">Starting from €30,000</p>
+              <p className="mt-2 text-sm text-subtle">
+                Complex, high-value deals, deep research, schedules, and on-site coordination.
+              </p>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-2xl p-8">
+              <h3 className="text-xl font-semibold">Custom</h3>
+              <p className="mt-2 text-2xl font-semibold">
+                <a href="/#contact" className="underline">Price: upon request →</a>
+              </p>
+              <p className="mt-2 text-sm text-subtle">
+                Tailored scope, specialist inputs, investor reporting format, on-site sessions.
+              </p>
+            </div>
+          </div>
         </div>
-      </section>
-    </div>
+      </Section>
+
+      {/* ABOUT teaser (ostaje kao i ranije, ali sada postoji i /about) */}
+      <Section id="about" className="bg-white">
+        <div className="container">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">About</h2>
+          <p className="mt-3 max-w-3xl text-subtle">
+            Led by Dejan Radinović. Two decades across privatizations, high-stakes due diligence,
+            complex M&A, and international arbitration.{" "}
+            <a href="/about" className="underline">Learn more →</a>
+          </p>
+        </div>
+      </Section>
+
+      {/* CONTACT (stari stil + ostaje Resend backend) */}
+      <Section id="contact">
+        <div className="container max-w-3xl">
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">Contact</h2>
+          <p className="mt-3 text-center text-subtle">
+            Tell us about the target, the deal context, and your timelines. We’ll get back to you with next steps.
+          </p>
+          <div className="mt-8">
+            <ContactForm />
+          </div>
+
+          {/* Diskretan link ka /book ispod forme */}
+          <p className="mt-3 text-sm text-subtle text-center">
+            Prefer to book a call?{" "}
+            <a href="/book" className="underline">Book a 30-min Zoom</a>.
+          </p>
+        </div>
+      </Section>
+    </main>
   );
 }
