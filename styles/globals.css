@@ -1,86 +1,36 @@
-/* ========== Base ========== */
-:root {
-  --ink: #0f172a;         /* tamni tekst */
-  --muted: #6b7280;       /* sekundarni tekst */
-  --bg-site: #f7f5f2;     /* svijetla “paper” pozadina koju si imao */
-  --card: #ffffff;        /* kartice/panels */
-  --border: #e5e7eb;      /* svijetla linija */
-  --accent: #0f172a;      /* dugmad/akcent (tamno) */
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Custom global styles */
 html, body {
-  margin: 0;
-  padding: 0;
+  @apply bg-white text-gray-900 antialiased;
 }
 
-body {
-  background: var(--bg-site);
-  color: var(--ink);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.section {
+  @apply py-20;
 }
 
-/* Container helper (zadrži isti ritam širina/margina kao ranije) */
+.section-tight {
+  @apply py-12;
+}
+
 .container {
-  max-width: 1120px;        /* ~7xl */
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-@media (min-width: 640px) {
-  .container { padding-left: 1.25rem; padding-right: 1.25rem; }
+  @apply mx-auto max-w-7xl px-6 lg:px-8;
 }
 
-/* Sekcijski ritam – više zraka između blokova */
-.section { padding-top: 5rem; padding-bottom: 5rem; }
-@media (min-width: 640px) { .section { padding-top: 6rem; padding-bottom: 6rem; } }
-
-.section-tight { padding-top: 3rem; padding-bottom: 3rem; }
-@media (min-width: 640px) { .section-tight { padding-top: 3.5rem; padding-bottom: 3.5rem; } }
-
-/* Kartice (services/fees) – bijela na “paper” pozadini */
 .card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 1rem;
+  @apply rounded-2xl border border-gray-200 bg-white shadow-sm;
 }
 
-/* Subtle text */
-.text-subtle { color: var(--muted); }
+.surface-white {
+  @apply bg-gray-50;
+}
 
-/* Akcent dugme (tamno, okruglo) */
 .btn-accent {
-  background: var(--accent);
-  color: #fff;
-  border-radius: 9999px;
-  padding: 0.75rem 1.5rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
+  @apply inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-white hover:bg-gray-800;
 }
 
-/* Fokus ring za dostupnost */
-:focus-visible {
-  outline: 2px solid #000;
-  outline-offset: 2px;
-}
-
-/* “Back to top” dugme (ako ga koristiš) */
-.back-to-top {
-  position: fixed; right: 1rem; bottom: 1rem;
-  background: var(--accent); color: #fff;
-  border-radius: 9999px; padding: 0.6rem 0.9rem;
-  border: 0; cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0,0,0,.15);
-}
-
-/* Utility za bijele sekcije koje “sjede” na paper bg-u */
-.surface-white { background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-
-/* Sitno poravnanje form polja (bez promjene tailwind-a) */
-input, select, textarea {
-  font: inherit;
-  color: inherit;
+.text-subtle {
+  @apply text-gray-600;
 }
