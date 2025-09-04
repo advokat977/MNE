@@ -1,27 +1,31 @@
+// components/Footer.tsx
 import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200">
-      <div className="container py-10 text-center text-sm text-subtle">
-        <p>&copy; {new Date().getFullYear()} MNE Consulting. All rights reserved.</p>
-        <p className="mt-2">Podgorica, Montenegro • EU-facing operations compliant with GDPR.</p>
-        <p className="mt-2">
-          <Link href="/privacy" className="underline hover:no-underline">Privacy</Link>
-          {" "}·{" "}
-          <Link href="/terms" className="underline hover:no-underline">Terms</Link>
-          {" "}·{" "}
-          <a className="underline hover:no-underline" href="mailto:info@mneconsulting.org">info@mneconsulting.org</a>
-          {" "}·{" "}
+    <footer className="mt-20 border-t border-slate-200/60 dark:border-slate-800/60">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-8 text-sm text-slate-600 dark:text-slate-400 md:flex-row md:justify-between">
+        <p>© {new Date().getFullYear()} MNE Consulting. All rights reserved.</p>
+        <nav className="flex items-center gap-6">
+          <Link href="/privacy" className="hover:text-slate-900 dark:hover:text-white">
+            Privacy
+          </Link>
+          <Link href="/terms" className="hover:text-slate-900 dark:hover:text-white">
+            Terms
+          </Link>
+          <Link href="/#contact" className="hover:text-slate-900 dark:hover:text-white">
+            Contact
+          </Link>
           <a
-            className="underline hover:no-underline"
-            href="https://www.linkedin.com/in/dejan-radinovic-19357158/"
+            href="https://www.linkedin.com/"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
+            className="hover:text-slate-900 dark:hover:text-white"
+            aria-label="LinkedIn"
           >
             LinkedIn
           </a>
-        </p>
+        </nav>
       </div>
     </footer>
   );
