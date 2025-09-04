@@ -17,16 +17,16 @@ export default function AboutPage() {
 
       <div className="mt-10 space-y-6 max-w-3xl">
         <p>
-          With over two decades of practice, <strong>Dejan Radinović</strong> has advised the Government
-          of Montenegro and leading international corporations on some of the country’s most significant privatizations
-          and investment projects. His track record includes high-stakes due diligence exercises, complex M&A transactions,
-          and representation in international arbitration disputes exceeding €800 million.
+          With over two decades of practice, <strong>Dejan Radinović</strong> has advised the Government of Montenegro
+          and leading international corporations on some of the country’s most significant privatizations and investment projects.
+          His track record includes high-stakes due diligence exercises, complex M&A transactions, and representation in
+          international arbitration disputes exceeding €800 million.
         </p>
         <p>
-          Dejan combines deep knowledge of Montenegrin law with an understanding of EU regulatory standards, offering investors
-          rare clarity at the intersection of local rules and cross-border business. This background ensures that each report
-          delivered by MNE Consulting is both source-anchored and board-ready — a decisive advantage for EU clients evaluating
-          opportunities in Montenegro.
+          Dejan combines deep knowledge of Montenegrin law with an understanding of EU regulatory standards,
+          offering investors rare clarity at the intersection of local rules and cross-border business. This background ensures
+          that each report delivered by MNE Consulting is both source-anchored and board-ready — a decisive advantage for EU clients
+          evaluating opportunities in Montenegro.
         </p>
       </div>
     </div>
