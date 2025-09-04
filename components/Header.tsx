@@ -25,11 +25,11 @@ export default function Header() {
         >
           <span>Menu</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2"/>
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" />
           </svg>
         </button>
 
-        {/* Desktop nav (stari stil) */}
+        {/* Desktop nav — stari spacing/size */}
         <nav id="mainnav" className="hidden md:flex items-center gap-8 text-[15px]">
           <Link href="/#services" className="hover:opacity-70">Services</Link>
           <Link href="/#method" className="hover:opacity-70">Method</Link>
@@ -46,7 +46,7 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* Mobile panel (stari stil) */}
+      {/* Mobile panel — stari stil */}
       <div className={`${open ? "" : "hidden"} md:hidden border-top border-gray-200/70`}>
         <div className="px-5 py-3 space-y-3">
           <Link href="/#services" className="block" onClick={close}>Services</Link>
