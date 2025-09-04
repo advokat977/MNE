@@ -2,7 +2,7 @@
 export const metadata = {
   title: "Terms of Use — MNE Consulting",
   description:
-    "Terms of use for mneconsulting.org. This website provides general information about our legal consulting services in Montenegro. Scheduling is provided via Cal.com and video meetings are hosted on Zoom.",
+    "Terms of use for mneconsulting.org. This website provides general information about our legal consulting services in Montenegro. Scheduling is provided via Cal.com and video meetings are hosted on Zoom. Calls may be recorded as described.",
 };
 
 export default function TermsPage() {
@@ -43,7 +43,7 @@ export default function TermsPage() {
           >
             Cal.com Terms
           </a>{" "}
-          &middot;{" "}
+          &middot{" "}
           <a
             href="https://cal.com/privacy"
             target="_blank"
@@ -62,7 +62,7 @@ export default function TermsPage() {
           >
             Zoom Terms of Service
           </a>{" "}
-          &middot;{" "}
+          &middot{" "}
           <a
             href="https://explore.zoom.us/en/privacy/"
             target="_blank"
@@ -73,11 +73,32 @@ export default function TermsPage() {
           </a>
         </li>
       </ul>
+
+      <h2 className="mt-8 text-xl font-semibold">Call recording</h2>
       <p className="mt-2 text-subtle max-w-prose">
-        Rescheduling or cancellation should be done via the links provided in your booking
-        confirmation email. Meetings are <em>not recorded by default</em>. If recording is ever
-        proposed, we will ask for your explicit consent in advance.
+        We record certain Zoom calls to document advice, maintain quality standards, and keep internal
+        records. Zoom displays a clear notice when recording is active. By remaining in a recorded
+        meeting you consent to recording. If you do not agree, please leave the meeting and contact
+        us to arrange a non-recorded alternative.
       </p>
+      <ul className="mt-2 list-disc pl-6 text-subtle max-w-prose space-y-1">
+        <li>
+          <strong>Scope:</strong> recordings may include audio/video, screen shares, and in-meeting chat.
+        </li>
+        <li>
+          <strong>Use:</strong> documentation of work performed, quality assurance, and compliance with legal or
+          contractual obligations. We do not publish or share recordings externally without consent
+          or a legal obligation.
+        </li>
+        <li>
+          <strong>Access:</strong> limited to authorized personnel and, where relevant, outside counsel or service
+          providers under confidentiality obligations.
+        </li>
+        <li>
+          <strong>Retention:</strong> recordings are retained for up to <strong>180 days</strong>, unless a longer period is
+          required by law or for the establishment, exercise, or defense of legal claims.
+        </li>
+      </ul>
 
       <h2 className="mt-8 text-xl font-semibold">Acceptable use</h2>
       <p className="mt-2 text-subtle max-w-prose">
