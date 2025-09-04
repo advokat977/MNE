@@ -1,79 +1,69 @@
-// app/layout.tsx
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
 import "../styles/globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import BackToTop from "../components/BackToTop";
-import MobileStickyBar from "../components/MobileStickyBar";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mneconsulting.org"),
-  title: {
-    default: "MNE Consulting — Due Diligence in Montenegro for EU Investors",
-    template: "%s — MNE Consulting",
-  },
+  title: "MNE Consulting — Trusted Local Counsel for EU Investors",
   description:
-    "Source-anchored, board-ready due diligence in Montenegro for EU investors. Clear risk flags, practical recommendations, and deal-focused execution.",
+    "Premium due diligence, transaction execution, and concession strategy for EU investors in Montenegro.",
+  metadataBase: new URL("https://mneconsulting.org"),
+  alternates: { canonical: "https://mneconsulting.org" },
   openGraph: {
-    title: "MNE Consulting — Due Diligence in Montenegro",
+    title: "MNE Consulting — Trusted Local Counsel for EU Investors",
     description:
-      "Source-anchored, board-ready due diligence in Montenegro for EU investors.",
-    url: "https://mneconsulting.org",
-    siteName: "MNE Consulting",
-    locale: "en_US",
+      "Board-ready due diligence, transaction execution, and concession strategy — EU standards, Montenegro know-how.",
     type: "website",
+    url: "https://mneconsulting.org/",
+    images: ["/og-image.png"]
   },
-  alternates: {
-    canonical: "https://mneconsulting.org",
-  },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
-};
-
-export const viewport: Viewport = {
-  // Sistem: bijela u light, crna u dark — Apple-like minimalizam
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#000000" },
-  ],
-  width: "device-width",
-  initialScale: 1,
-  viewportFit: "cover",
+  icons: { icon: "/favicon.svg" }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const jsonLd = {
+  // Schema.org JSON-LD (LegalService) — uklonjen email (anti-spam)
+  const schema = {
     "@context": "https://schema.org",
     "@type": "LegalService",
-    name: "MNE Consulting",
-    url: "https://mneconsulting.org",
-    logo: "https://mneconsulting.org/logo.png",
-    image: "https://mneconsulting.org/og-image.png",
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "ME",
-      addressLocality: "Podgorica",
-    },
-    // Bez "email" polja (anti-spam) — kontakt ide preko website forme.
+    "name": "MNE Consulting",
+    "url": "https://mneconsulting.org",
+    "areaServed": ["ME", "EU"],
+    "priceRange": "€7.5k–€50k+",
+    "description":
+      "Boutique legal practice for EU investors entering Montenegro — due diligence, transaction execution, and concession strategy.",
+    "image": "https://mneconsulting.org/og-image.png",
+    "logo": "https://mneconsulting.org/favicon.png"
   };
 
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
+    <html lang="en">
+      <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white text-black px-3 py-2 rounded"
+        >
+          Skip to content
+        </a>
+
+        {/* JSON-LD */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
-      </head>
-      <body className="min-h-screen bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
+
         <Header />
-        <main className="min-h-[70vh]">{children}</main>
+        <main id="main">{children}</main>
         <Footer />
-        {/* Global: mobilni UX dodaci */}
-        <BackToTop />
-        <MobileStickyBar />
+
+        {/* Vercel Analytics & Speed Insights */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
