@@ -1,3 +1,4 @@
+// components/Header.tsx
 "use client";
 
 import Link from "next/link";
@@ -15,12 +16,12 @@ export default function Header() {
           MNE Consulting
         </Link>
 
-        {/* Mobile menu button */}
+        {/* Mobile toggle */}
         <button
-          className="md:hidden inline-flex items-center gap-2 text-sm"
+          onClick={toggle}
+          className="md:hidden inline-flex items-center gap-2 px-3 py-2 border rounded text-sm"
           aria-expanded={open}
           aria-controls="mainnav"
-          onClick={toggle}
         >
           <span>Menu</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -28,7 +29,7 @@ export default function Header() {
           </svg>
         </button>
 
-        {/* Desktop nav */}
+        {/* Desktop nav (stari stil) */}
         <nav id="mainnav" className="hidden md:flex items-center gap-8 text-[15px]">
           <Link href="/#services" className="hover:opacity-70">Services</Link>
           <Link href="/#method" className="hover:opacity-70">Method</Link>
@@ -36,22 +37,33 @@ export default function Header() {
           <Link href="/about" className="hover:opacity-70">About</Link>
           <Link href="/book" className="hover:opacity-70">Book</Link>
           <Link href="/#contact" className="hover:opacity-70">Contact</Link>
+          <Link
+            href="/#contact"
+            className="ml-2 inline-flex items-center justify-center rounded-full bg-accent text-white px-4 py-2 hover:opacity-90"
+          >
+            Request Proposal
+          </Link>
         </nav>
       </div>
 
-      {/* Mobile dropdown */}
-      {open && (
-        <div className="md:hidden border-t border-gray-200 bg-[var(--bg)]">
-          <div className="container py-3 flex flex-col gap-3 text-[15px]">
-            <Link onClick={close} href="/#services">Services</Link>
-            <Link onClick={close} href="/#method">Method</Link>
-            <Link onClick={close} href="/#fees">Fees</Link>
-            <Link onClick={close} href="/about">About</Link>
-            <Link onClick={close} href="/book">Book</Link>
-            <Link onClick={close} href="/#contact">Contact</Link>
-          </div>
+      {/* Mobile panel (stari stil) */}
+      <div className={`${open ? "" : "hidden"} md:hidden border-top border-gray-200/70`}>
+        <div className="px-5 py-3 space-y-3">
+          <Link href="/#services" className="block" onClick={close}>Services</Link>
+          <Link href="/#method" className="block" onClick={close}>Method</Link>
+          <Link href="/#fees" className="block" onClick={close}>Fees</Link>
+          <Link href="/about" className="block" onClick={close}>About</Link>
+          <Link href="/book" className="block" onClick={close}>Book</Link>
+          <Link href="/#contact" className="block" onClick={close}>Contact</Link>
+          <Link
+            href="/#contact"
+            className="inline-flex items-center justify-center rounded-full bg-accent text-white px-4 py-2"
+            onClick={close}
+          >
+            Request Proposal
+          </Link>
         </div>
-      )}
+      </div>
     </header>
   );
 }
