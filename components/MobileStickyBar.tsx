@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 export default function MobileStickyBar() {
+  const pathname = usePathname();
   const [visible, setVisible] = useState(false);
   const [keyboardOpen, setKeyboardOpen] = useState(false);
-  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 200);
