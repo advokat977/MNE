@@ -1,7 +1,7 @@
 // app/page.tsx
 import Link from "next/link";
-import PriceCard from "@/components/PriceCard";
-import ContactForm from "@/components/ContactForm";
+import PriceCard from "../components/PriceCard"; // ⬅️ relativni import
+import ContactForm from "../components/ContactForm";
 
 export const metadata = {
   title: "MNE Consulting — Due Diligence in Montenegro",
