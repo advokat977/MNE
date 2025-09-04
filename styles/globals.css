@@ -1,60 +1,86 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Site palette */
+/* ========== Base ========== */
 :root {
-  --site-bg: 247, 248, 250; /* very light */
-  --ink: 17, 24, 39;        /* gray-900 */
-  --subtle: 107, 114, 128;  /* gray-500 */
-  --accent: 15, 23, 42;     /* slate-900 */
+  --ink: #0f172a;         /* tamni tekst */
+  --muted: #6b7280;       /* sekundarni tekst */
+  --bg-site: #f7f5f2;     /* svijetla “paper” pozadina koju si imao */
+  --card: #ffffff;        /* kartice/panels */
+  --border: #e5e7eb;      /* svijetla linija */
+  --accent: #0f172a;      /* dugmad/akcent (tamno) */
 }
 
-html {
-  scroll-behavior: smooth;
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  color: rgb(var(--ink));
-  background: rgb(var(--site-bg));
+  background: var(--bg-site);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Utilities used in the app */
-.bg-site { background-color: rgb(var(--site-bg)); }
-.text-ink { color: rgb(var(--ink)); }
-.text-subtle { color: rgb(var(--subtle)); }
-.bg-accent { background-color: rgb(var(--accent)); }
-.container { @apply mx-auto px-4 max-w-6xl; }
-.section-tight { @apply py-10 sm:py-12; }
-
-/* Back to top button */
-.back-to-top {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  width: 44px;
-  height: 44px;
-  border-radius: 9999px;
-  border: 1px solid rgba(0,0,0,.08);
-  background: #111827;
-  color: #fff;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 44px;
-  text-align: center;
-  transition: opacity .2s ease, transform .2s ease, box-shadow .2s ease;
-  box-shadow: 0 8px 20px rgba(0,0,0,.18);
+/* Container helper (zadrži isti ritam širina/margina kao ranije) */
+.container {
+  max-width: 1120px;        /* ~7xl */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
-.back-to-top:focus { outline: 2px solid #111827; outline-offset: 2px; }
-.back-to-top:hover { transform: translateY(-2px); }
+@media (min-width: 640px) {
+  .container { padding-left: 1.25rem; padding-right: 1.25rem; }
+}
 
-/* Cards (used on fees) */
+/* Sekcijski ritam – više zraka između blokova */
+.section { padding-top: 5rem; padding-bottom: 5rem; }
+@media (min-width: 640px) { .section { padding-top: 6rem; padding-bottom: 6rem; } }
+
+.section-tight { padding-top: 3rem; padding-bottom: 3rem; }
+@media (min-width: 640px) { .section-tight { padding-top: 3.5rem; padding-bottom: 3.5rem; } }
+
+/* Kartice (services/fees) – bijela na “paper” pozadini */
 .card {
-  @apply bg-white border border-gray-200 rounded-2xl p-8;
-}
-.card-strong {
-  @apply border-2 border-black shadow-sm;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
 }
 
-/* Basic typography */
-h1, h2, h3 { @apply text-ink; }
+/* Subtle text */
+.text-subtle { color: var(--muted); }
+
+/* Akcent dugme (tamno, okruglo) */
+.btn-accent {
+  background: var(--accent);
+  color: #fff;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* Fokus ring za dostupnost */
+:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+/* “Back to top” dugme (ako ga koristiš) */
+.back-to-top {
+  position: fixed; right: 1rem; bottom: 1rem;
+  background: var(--accent); color: #fff;
+  border-radius: 9999px; padding: 0.6rem 0.9rem;
+  border: 0; cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
+
+/* Utility za bijele sekcije koje “sjede” na paper bg-u */
+.surface-white { background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+/* Sitno poravnanje form polja (bez promjene tailwind-a) */
+input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
