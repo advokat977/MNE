@@ -20,6 +20,7 @@ export default function BookPage() {
         <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight">
           Book an Intro Consult
         </h1>
+
         <p className="mt-4 text-subtle max-w-prose">
           Choose a time that works for you. Calls are held on Zoom. If you don’t
           see a suitable slot, email{" "}
@@ -35,6 +36,7 @@ export default function BookPage() {
             title="Book a call"
             loading="lazy"
             style={{ width: "100%", height: "900px", border: 0 }}
+            // dozvole za kameru/mikrofon ako ih Cal traži u embedu
             allow="camera; microphone; fullscreen; clipboard-read; clipboard-write"
           />
         </div>
