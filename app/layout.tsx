@@ -1,10 +1,10 @@
 // app/layout.tsx
 import type { Metadata, Viewport } from "next";
-import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import BackToTop from "@/components/BackToTop";
-import MobileStickyBar from "@/components/MobileStickyBar";
+import "../styles/globals.css"; // ⬅️ ispravljen CSS path (bio "./globals.css")
+import Header from "../components/Header"; // ⬅️ relativni import umjesto "@/..."
+import Footer from "../components/Footer";
+import BackToTop from "../components/BackToTop";
+import MobileStickyBar from "../components/MobileStickyBar";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mneconsulting.org"),
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  // Sistemskog izgleda: bijela u light, crna u dark modu (Apple-like minimalizam)
+  // Sistem: bijela u light, crna u dark — Apple-like minimalizam
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
     { media: "(prefers-color-scheme: dark)", color: "#000000" },
@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       addressCountry: "ME",
       addressLocality: "Podgorica",
     },
-    // Namjerno nema "email" polja (anti-spam). Kontakt ide preko forme na sajtu.
+    // Bez "email" polja (anti-spam) — kontakt ide preko website forme.
   };
 
   return (
@@ -72,7 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main className="min-h-[70vh]">{children}</main>
         <Footer />
-        {/* Globalni mobilni UX dodatci */}
+        {/* Global: mobilni UX dodaci */}
         <BackToTop />
         <MobileStickyBar />
       </body>
