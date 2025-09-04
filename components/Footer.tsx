@@ -11,16 +11,9 @@ export default function Footer() {
           {" "}·{" "}
           <Link href="/terms" className="underline hover:no-underline">Terms</Link>
           {" "}·{" "}
-          <a className="underline hover:no-underline" href="mailto:info@mneconsulting.org">info@mneconsulting.org</a>
+          <Link href="/#contact" className="underline hover:no-underline">Contact</Link>
           {" "}·{" "}
-          <a
-            className="underline hover:no-underline"
-            href="https://www.linkedin.com/in/dejan-radinovic-19357158/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
+          <Link href="/book" className="underline hover:no-underline">Book Intro Call</Link>
         </p>
       </div>
     </footer>
