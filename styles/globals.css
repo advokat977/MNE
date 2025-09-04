@@ -4,17 +4,17 @@
 
 /* ---------- Design tokens ---------- */
 :root{
-  /* elegant navy akcenat */
-  --accent:#0f172a; /* slate-900 */
-  --accent-ink:#ffffff;
+  --accent:#0f172a;           /* elegant navy */
+  --accent-ink:#ffffff;       /* text on accent */
 }
 
 /* ---------- Base ---------- */
 @layer base {
   html, body { @apply bg-white text-gray-900 antialiased; }
 
-  /* tipografija – Playfair za naslove, Inter za ostalo */
-  body { font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; }
+  body {
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  }
 
   h1, h2, h3 {
     font-family: var(--font-playfair), ui-serif, Georgia, "Times New Roman", serif;
@@ -46,8 +46,8 @@
 
   .btn-accent {
     background: var(--accent);
-    color: var(--accent-ink);
-    @apply inline-flex items-center justify-center rounded-full px-6 py-3 hover:opacity-95;
+    color: var(--accent-ink) !important; /* prisilimo bijeli tekst */
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 hover:opacity-95 no-underline;
   }
 
   .chip-muted { @apply text-xs text-gray-500; }
@@ -72,9 +72,13 @@
 }
 
 /* ---------- Link/CTA akcenti ---------- */
-a[href^="http"], a[href^="/"], .link-accent { color: var(--accent); }
+/* VAŽNO: ne bojimo .btn-accent u tamno! */
+a:not(.btn-accent)[href^="http"],
+a:not(.btn-accent)[href^="/"],
+.link-accent { color: var(--accent); }
 
-/* ---------- Sekcije – dodatni “air” između blokova ---------- */
-.section + .section, .section + .section-tight, .section-tight + .section, .section-tight + .section-tight {
-  @apply mt-2;
-}
+/* ---------- Dodatni “air” između sekcija ---------- */
+.section + .section,
+.section + .section-tight,
+.section-tight + .section,
+.section-tight + .section-tight { @apply mt-2; }
