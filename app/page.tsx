@@ -1,5 +1,5 @@
-import Section from "./components/Section";
-import ContactForm from "./components/ContactForm";
+import Section from "../components/Section";
+import ContactForm from "../components/ContactForm";
 
 export default function HomePage() {
   return (
@@ -157,7 +157,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* About – NOVI tekst */}
+      {/* About – novi tekst */}
       <Section id="about" className="surface-white">
         <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">About</h2>
         <p className="mt-4 text-subtle leading-relaxed max-w-3xl">
