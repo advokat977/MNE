@@ -1,59 +1,57 @@
-// components/Header.tsx
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState, useCallback } from "react";
 
 export default function Header() {
-  const pathname = usePathname();
-  const [isTop, setIsTop] = useState(true);
-
-  useEffect(() => {
-    const onScroll = () => setIsTop(window.scrollY < 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const NavLink = ({
-    href,
-    children,
-  }: {
-    href: string;
-    children: React.ReactNode;
-  }) => (
-    <Link
-      href={href}
-      className="text-sm font-medium text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
-    >
-      {children}
-    </Link>
-  );
+  const [open, setOpen] = useState(false);
+  const toggle = useCallback(() => setOpen(v => !v), []);
+  const close = useCallback(() => setOpen(false), []);
 
   return (
-    <header
-      className={`sticky top-0 z-50 border-b border-transparent backdrop-blur ${
-        isTop ? "bg-white/65 dark:bg-slate-950/55" : "bg-white/85 dark:bg-slate-950/80 border-slate-200/60 dark:border-slate-800/60"
-      }`}
-    >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <Link
-          href="/"
-          className="text-base font-semibold tracking-tight text-slate-900 dark:text-white"
-        >
+    <header className="sticky top-0 z-50 border-b border-gray-200/70 backdrop-blur bg-[rgba(247,245,242,0.7)]">
+      <div className="container py-4 flex items-center justify-between">
+        <Link href="/" className="font-semibold tracking-tight text-lg">
           MNE Consulting
         </Link>
-        <nav className="flex items-center gap-5">
-          {/* Home anchors rade smisleno i sa drugih ruta */}
-          <NavLink href="/#services">Services</NavLink>
-          <NavLink href="/#method">Method</NavLink>
-          <NavLink href="/#fees">Fees</NavLink>
-          <NavLink href="/about">About</NavLink>
-          <NavLink href="/book">Book</NavLink>
-          <NavLink href="/#contact">Contact</NavLink>
+
+        {/* Mobile menu button */}
+        <button
+          className="md:hidden inline-flex items-center gap-2 text-sm"
+          aria-expanded={open}
+          aria-controls="mainnav"
+          onClick={toggle}
+        >
+          <span>Menu</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2"/>
+          </svg>
+        </button>
+
+        {/* Desktop nav */}
+        <nav id="mainnav" className="hidden md:flex items-center gap-8 text-[15px]">
+          <Link href="/#services" className="hover:opacity-70">Services</Link>
+          <Link href="/#method" className="hover:opacity-70">Method</Link>
+          <Link href="/#fees" className="hover:opacity-70">Fees</Link>
+          <Link href="/about" className="hover:opacity-70">About</Link>
+          <Link href="/book" className="hover:opacity-70">Book</Link>
+          <Link href="/#contact" className="hover:opacity-70">Contact</Link>
         </nav>
       </div>
+
+      {/* Mobile dropdown */}
+      {open && (
+        <div className="md:hidden border-t border-gray-200 bg-[var(--bg)]">
+          <div className="container py-3 flex flex-col gap-3 text-[15px]">
+            <Link onClick={close} href="/#services">Services</Link>
+            <Link onClick={close} href="/#method">Method</Link>
+            <Link onClick={close} href="/#fees">Fees</Link>
+            <Link onClick={close} href="/about">About</Link>
+            <Link onClick={close} href="/book">Book</Link>
+            <Link onClick={close} href="/#contact">Contact</Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
