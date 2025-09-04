@@ -2,28 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Site palette */
 :root {
-  --bg: #f7f5f2;
-  --ink: #111827;     /* slate-900 */
-  --subtle: #6b7280;  /* gray-500 */
-  --accent: #0f172a;  /* slate-900 for CTA */
-  --line: #e5e7eb;    /* gray-200 */
+  --site-bg: 247, 248, 250; /* very light */
+  --ink: 17, 24, 39;        /* gray-900 */
+  --subtle: 107, 114, 128;  /* gray-500 */
+  --accent: 15, 23, 42;     /* slate-900 */
 }
 
-html, body { height: 100%; }
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  color: var(--ink);
-  background: var(--bg);
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: rgb(var(--ink));
+  background: rgb(var(--site-bg));
 }
 
-/***** Utility tweaks *****/
-.container { @apply mx-auto px-5; }
-.section { @apply py-16; }
-.section-tight { @apply pt-16 pb-8; }
+/* Utilities used in the app */
+.bg-site { background-color: rgb(var(--site-bg)); }
+.text-ink { color: rgb(var(--ink)); }
+.text-subtle { color: rgb(var(--subtle)); }
+.bg-accent { background-color: rgb(var(--accent)); }
+.container { @apply mx-auto px-4 max-w-6xl; }
+.section-tight { @apply py-10 sm:py-12; }
 
-/***** Typography helpers *****/
-h1, h2, h3 { font-family: var(--font-playfair), Georgia, serif; }
-body { font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  border: 1px solid rgba(0,0,0,.08);
+  background: #111827;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 44px;
+  text-align: center;
+  transition: opacity .2s ease, transform .2s ease, box-shadow .2s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,.18);
+}
+.back-to-top:focus { outline: 2px solid #111827; outline-offset: 2px; }
+.back-to-top:hover { transform: translateY(-2px); }
+
+/* Cards (used on fees) */
+.card {
+  @apply bg-white border border-gray-200 rounded-2xl p-8;
+}
+.card-strong {
+  @apply border-2 border-black shadow-sm;
+}
+
+/* Basic typography */
+h1, h2, h3 { @apply text-ink; }
