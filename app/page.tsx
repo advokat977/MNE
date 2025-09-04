@@ -1,5 +1,5 @@
-import Section from "./components/Section";
-import ContactForm from "./components/ContactForm";
+import Section from "../components/Section";
+import ContactForm from "../components/ContactForm";
 
 export default function HomePage() {
   return (
@@ -199,7 +199,6 @@ export default function HomePage() {
             All inquiries are treated as strictly confidential under attorney–client privilege.
           </p>
 
-          {/* Only the form — no duplicate CTA below */}
           <div className="mx-auto mt-10 max-w-2xl">
             <ContactForm />
           </div>
