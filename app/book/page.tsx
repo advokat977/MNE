@@ -25,7 +25,6 @@ export default function BookPage() {
         </p>
 
         <div className="mt-8 rounded-2xl border border-gray-200 bg-gray-50/50 p-2 sm:p-4">
-          {/* Cal.com embed — KORIŠĆENJE TAČNE PUTANJE */}
           <div className="rounded-xl bg-white p-2 sm:p-4">
             <iframe
               title="Book a Zoom Call — Cal.com"
@@ -39,7 +38,6 @@ export default function BookPage() {
           </div>
         </div>
 
-        {/* (Opcionalno) Cal.com embed helper skripta za auto-resize; bezbedno je ostaviti */}
         <script async src="https://cal.com/embed.js" />
       </div>
     </section>
