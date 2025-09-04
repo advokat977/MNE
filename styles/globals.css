@@ -2,35 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom global styles */
-html, body {
-  @apply bg-white text-gray-900 antialiased;
+/* ---------- Design tokens ---------- */
+:root{
+  /* elegant navy akcenat */
+  --accent:#0f172a; /* slate-900 */
+  --accent-ink:#ffffff;
 }
 
-.section {
-  @apply py-20;
+/* ---------- Base ---------- */
+@layer base {
+  html, body { @apply bg-white text-gray-900 antialiased; }
+
+  /* tipografija – Playfair za naslove, Inter za ostalo */
+  body { font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; }
+
+  h1, h2, h3 {
+    font-family: var(--font-playfair), ui-serif, Georgia, "Times New Roman", serif;
+    @apply tracking-tight;
+  }
+  h1 { @apply text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05]; }
+  h2 { @apply text-3xl sm:text-4xl font-semibold; }
+  h3 { @apply text-xl font-semibold; }
+
+  p  { @apply leading-relaxed; }
+  a  { @apply underline decoration-transparent hover:decoration-inherit; }
 }
 
-.section-tight {
-  @apply py-12;
+/* ---------- Layout helpers ---------- */
+@layer components {
+  .container { @apply mx-auto max-w-7xl px-6 lg:px-8; }
+  .section   { @apply py-24; }
+  .section-tight { @apply py-14; }
+
+  .surface-white { @apply bg-white; }
+  .surface-muted { @apply bg-gray-50; }
+
+  .text-subtle { @apply text-gray-600; }
+
+  .card {
+    @apply rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow;
+  }
+  .card:hover { @apply shadow-md; }
+
+  .btn-accent {
+    background: var(--accent);
+    color: var(--accent-ink);
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 hover:opacity-95;
+  }
+
+  .chip-muted { @apply text-xs text-gray-500; }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50
+           focus:rounded-md focus:bg-black focus:text-white focus:px-3 focus:py-2;
+  }
 }
 
-.container {
-  @apply mx-auto max-w-7xl px-6 lg:px-8;
+/* ---------- Hero površina ---------- */
+.hero-surface{
+  background:
+    radial-gradient(1200px 400px at 50% -100px, rgba(15,23,42,0.06), transparent 70%),
+    radial-gradient(800px 300px at 80% -60px, rgba(15,23,42,0.05), transparent 70%);
 }
 
-.card {
-  @apply rounded-2xl border border-gray-200 bg-white shadow-sm;
+/* ---------- Back-to-top (ako se koristi) ---------- */
+.back-to-top {
+  @apply fixed bottom-5 right-5 z-40 inline-flex h-11 w-11 items-center justify-center
+         rounded-full border border-gray-200 bg-white shadow-sm hover:bg-gray-50;
 }
 
-.surface-white {
-  @apply bg-gray-50;
-}
+/* ---------- Link/CTA akcenti ---------- */
+a[href^="http"], a[href^="/"], .link-accent { color: var(--accent); }
 
-.btn-accent {
-  @apply inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-white hover:bg-gray-800;
-}
-
-.text-subtle {
-  @apply text-gray-600;
+/* ---------- Sekcije – dodatni “air” između blokova ---------- */
+.section + .section, .section + .section-tight, .section-tight + .section, .section-tight + .section-tight {
+  @apply mt-2;
 }
