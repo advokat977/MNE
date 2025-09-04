@@ -2,7 +2,7 @@
 export const metadata = {
   title: "Privacy Policy — MNE Consulting",
   description:
-    "Privacy policy for mneconsulting.org. We respect confidentiality and process only the data necessary to respond to your inquiry, schedule calls (Cal.com), and host video meetings (Zoom).",
+    "Privacy policy for mneconsulting.org. We process only the data necessary to respond to your inquiry, schedule calls (Cal.com), and host video meetings (Zoom). Calls may be recorded as described below.",
 };
 
 export default function PrivacyPage() {
@@ -30,8 +30,13 @@ export default function PrivacyPage() {
                 reminders on our behalf.
               </li>
               <li>
-                <strong>Video calls (Zoom):</strong> meeting metadata (date/time, meeting ID/link)
-                to host the call. We do <em>not</em> record calls by default.
+                <strong>Video meetings (Zoom):</strong> meeting metadata (date/time, meeting ID/link)
+                to host the call.
+              </li>
+              <li>
+                <strong>Call recordings (Zoom):</strong> if recording is enabled, audio and/or video,
+                screen shares, and in-meeting chat content may be captured. Zoom displays a prominent
+                recording notice when recording is active.
               </li>
               <li>
                 <strong>Routine logs &amp; performance metrics:</strong> standard web analytics and
@@ -58,11 +63,10 @@ export default function PrivacyPage() {
               We use <strong>Cal.com</strong> to let you book a time that works for you. When you
               book, Cal.com processes your name, email, time zone, and selected slot to generate a
               calendar invite and reminders. For the meeting itself, we use <strong>Zoom</strong> to
-              create a unique video link. By default, meetings are not recorded.
+              create a unique video link.
             </p>
             <p className="mt-3 text-subtle">
-              For more information, see the respective privacy notices:
-              {" "}
+              For more information, see the respective privacy notices:{" "}
               <a
                 href="https://cal.com/privacy"
                 target="_blank"
@@ -70,8 +74,8 @@ export default function PrivacyPage() {
                 className="underline hover:no-underline"
               >
                 Cal.com Privacy
-              </a>
-              {" "}and{" "}
+              </a>{" "}
+              and{" "}
               <a
                 href="https://explore.zoom.us/en/privacy/"
                 target="_blank"
@@ -84,25 +88,58 @@ export default function PrivacyPage() {
             </p>
           </section>
 
+          {/* Recordings */}
+          <section>
+            <h2 className="text-xl font-semibold">Call recordings</h2>
+            <p className="mt-3 text-subtle">
+              We record certain Zoom calls to document advice, maintain quality standards, and keep
+              internal records. Zoom will show you an on-screen notice when recording is active. By
+              remaining in a recorded meeting, you acknowledge recording. If you do not agree, you
+              can leave the meeting and request a non-recorded alternative.
+            </p>
+            <ul className="mt-3 list-disc pl-6 text-subtle space-y-2">
+              <li>
+                <strong>Content:</strong> audio/video, screen shares, and in-meeting chat may be
+                included in the recording.
+              </li>
+              <li>
+                <strong>Purpose:</strong> documentation of work performed, quality assurance, and
+                compliance.
+              </li>
+              <li>
+                <strong>Lawful basis:</strong>{" "}
+                <em>legitimate interest</em> (documenting and delivering services). When applicable,
+                processing may also be necessary for the <em>performance of a contract</em>.
+              </li>
+              <li>
+                <strong>Access:</strong> restricted to authorized personnel and, where relevant,
+                outside counsel or service providers under confidentiality obligations.
+              </li>
+              <li>
+                <strong>Retention:</strong> recordings are retained for up to <strong>180 days</strong>,
+                unless a longer period is required by law or for the establishment, exercise, or
+                defense of legal claims.
+              </li>
+              <li>
+                <strong>Storage:</strong> recordings are stored securely under our account. We apply
+                reasonable technical and organizational measures to protect them.
+              </li>
+              <li>
+                <strong>Your choices:</strong> you can request a copy or deletion of a recording,
+                subject to legal holds or overriding obligations.
+              </li>
+            </ul>
+          </section>
+
           {/* Legal basis */}
           <section>
             <h2 className="text-xl font-semibold">Legal basis</h2>
             <p className="mt-3 text-subtle">
-              Our legal basis for processing contact form and scheduling data is{" "}
-              <em>legitimate interest</em> (responding to your request, scheduling a call, and
-              preparing a potential engagement). If we enter into an engagement, subsequent
-              processing may also be necessary for the <em>performance of a contract</em>.
-              We do not use your data for marketing without your consent.
-            </p>
-          </section>
-
-          {/* Retention */}
-          <section>
-            <h2 className="text-xl font-semibold">Retention</h2>
-            <p className="mt-3 text-subtle">
-              We retain communications and booking metadata only as long as needed to handle your
-              request, schedule the call, maintain basic records, and comply with legal obligations.
-              You can request deletion at any time (subject to any legal holds).
+              Our legal basis for processing contact, scheduling, and meeting data is{" "}
+              <em>legitimate interest</em> (responding to requests, scheduling calls, documenting
+              services). If we enter into an engagement, subsequent processing may also be necessary
+              for the <em>performance of a contract</em>. We do not use your data for marketing
+              without your consent.
             </p>
           </section>
 
@@ -112,8 +149,7 @@ export default function PrivacyPage() {
             <p className="mt-3 text-subtle">
               Some processors (e.g., email, scheduling, video) may process data outside your
               jurisdiction, including in the EU/EEA and the United States. Where applicable, we rely
-              on the providers’ data protection agreements and Standard Contractual Clauses (SCCs)
-              to safeguard transfers.
+              on providers’ data protection agreements and Standard Contractual Clauses (SCCs).
             </p>
           </section>
 
@@ -122,8 +158,8 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-semibold">Security</h2>
             <p className="mt-3 text-subtle">
               We use modern hosting and transport security (TLS) and industry-standard email
-              controls (SPF/DKIM/DMARC) for domain integrity. Access to third-party tools is limited
-              to authorized accounts and protected by strong authentication.
+              controls (SPF/DKIM/DMARC). Access to third-party tools is limited to authorized
+              accounts and protected by strong authentication.
             </p>
           </section>
 
@@ -131,7 +167,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-semibold">Cookies</h2>
             <p className="mt-3 text-subtle">
-              We do not use advertising cookies. Cal.com’s scheduling widget and Zoom’s join
+              We do not use advertising cookies. Cal.com’s scheduling widget and Zoom’s meeting
               experience may set strictly necessary cookies to deliver their functionality; refer to
               their privacy notices for details.
             </p>
