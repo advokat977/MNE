@@ -19,7 +19,7 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main>
-      {/* Hero — stari stil */}
+      {/* HERO — originalni stil */}
       <Section className="section-tight">
         <div className="container">
           <div className="max-w-3xl">
@@ -27,41 +27,25 @@ export default function HomePage() {
               Trusted Local Counsel for EU Investors in Montenegro
             </h1>
             <p className="mt-5 text-lg text-subtle max-w-prose">
-              Board-ready due diligence, transaction execution, and concession
-              strategy — EU standards, Montenegro know-how. Reports prepared by a
-              licensed attorney with 20+ years of courtroom and corporate
-              experience.
+              Board-ready due diligence, transaction execution, and concession strategy — EU standards, Montenegro know-how.
+              Reports prepared by a licensed attorney with 20+ years of courtroom and corporate experience.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <a
-                href="/#contact"
-                className="inline-flex items-center justify-center rounded-full bg-accent text-white px-6 py-3"
-                aria-label="Request a project proposal"
-              >
+              <a href="/#contact" className="inline-flex items-center justify-center rounded-full bg-accent text-white px-6 py-3">
                 Request Proposal
               </a>
-              <a
-                href="/#method"
-                className="inline-flex items-center justify-center rounded-full border border-gray-300 px-6 py-3 hover:bg-white"
-                aria-label="See how we work"
-              >
+              <a href="/#method" className="inline-flex items-center justify-center rounded-full border border-gray-300 px-6 py-3 hover:bg-white">
                 How we work
               </a>
-              <a
-                href="/book"
-                className="inline-flex items-center justify-center rounded-full border border-gray-300 px-6 py-3 hover:bg-white"
-                aria-label="Book a 30-minute Zoom call"
-              >
+              <a href="/book" className="inline-flex items-center justify-center rounded-full border border-gray-300 px-6 py-3 hover:bg-white">
                 Book Intro Call
               </a>
             </div>
-
-            {/* tvoje mini “trust” stavke ostaju kakve su u zipu (preskočeno zbog dužine) */}
           </div>
         </div>
       </Section>
 
-      {/* Services — stari stil */}
+      {/* SERVICES — originalni stil */}
       <Section id="services">
         <div className="container">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">Services</h2>
@@ -69,12 +53,11 @@ export default function HomePage() {
             Legal due diligence for acquisitions, joint ventures, privatizations, and project investments in Montenegro.
             We also support negotiation strategy and documentation alignment with EU investor expectations.
           </p>
-
-          {/* … ostale kartice iz tvog ZIP-a (Due Diligence, Transaction Execution, Concessions, Disputes) … */}
+          {/* … (zadrži tvoje postojeće service blokove ako ih imaš u projektu) … */}
         </div>
       </Section>
 
-      {/* Method — stari stil */}
+      {/* METHOD — originalni stil */}
       <Section id="method">
         <div className="container">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">Method</h2>
@@ -87,7 +70,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Fees — stari stil kartica + dodata 4. “Custom” kartica i link na formu */}
+      {/* FEES — originalne kartice + dodata 4. “Custom” */}
       <Section id="fees">
         <div className="container">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">Transparent Fees</h2>
@@ -118,7 +101,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* NOVO: Custom kartica, isti stil */}
+            {/* NOVO: Custom kartica */}
             <div className="bg-white border border-gray-200 rounded-2xl p-8">
               <h3 className="text-xl font-semibold">Custom</h3>
               <p className="mt-2 text-2xl font-semibold">
@@ -132,25 +115,19 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* About — tvoj stari teaser ostaje; /about je stvarna stranica */}
+      {/* ABOUT teaser — originalni ton; /about je pun tekst */}
       <Section id="about" className="bg-white border-y border-gray-200">
         <div className="container py-16">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">About</h2>
           <p className="mt-4 text-subtle leading-relaxed max-w-3xl">
             Licensed attorney with 20+ years across courtroom litigation and complex corporate transactions.
-            Member of the World Triathlon Tribunal. Reports are concise, source-anchored, and decision-oriented.
-            {" "}
+            Reports are concise, source-anchored, and decision-oriented.{" "}
             <a href="/about" className="underline">Learn more →</a>
           </p>
-          <ul className="mt-6 space-y-2 text-sm text-subtle">
-            <li>• High-profile corporate and concession matters</li>
-            <li>• Cross-border coordination with EU counsel</li>
-            <li>• Board-ready outputs in English</li>
-          </ul>
         </div>
       </Section>
 
-      {/* Contact — tvoj postojeći formular ostaje */}
+      {/* CONTACT — originalni form + diskretan link ka /book */}
       <Section id="contact">
         <div className="container max-w-3xl">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">Contact</h2>
