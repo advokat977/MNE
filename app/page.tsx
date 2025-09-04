@@ -1,24 +1,10 @@
-// app/page.tsx
 import Section from "../components/Section";
 import ContactForm from "../components/ContactForm";
-
-export const metadata = {
-  title: "MNE Consulting — Trusted Local Counsel for EU Investors in Montenegro",
-  description:
-    "Board-ready due diligence, transaction execution, and concession strategy — EU standards, Montenegro know-how. Reports prepared by a licensed attorney with 20+ years of courtroom and corporate experience.",
-  alternates: { canonical: "/" },
-  openGraph: {
-    title: "MNE Consulting — Trusted Local Counsel for EU Investors in Montenegro",
-    description:
-      "Board-ready due diligence, transaction execution, and concession strategy — EU standards, Montenegro know-how.",
-    type: "website",
-    url: "https://mneconsulting.org/",
-  },
-}; // ← VAŽNO: ovaj zatvarajući `};` mora postojati
+import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <main>
+    <>
       {/* Hero */}
       <Section className="section-tight">
         <div className="container">
@@ -27,40 +13,24 @@ export default function HomePage() {
               Trusted Local Counsel for EU Investors in Montenegro
             </h1>
             <p className="mt-5 text-lg text-subtle max-w-prose">
-              Board-ready due diligence, transaction execution, and concession
-              strategy — EU standards, Montenegro know-how. Reports prepared by a
-              licensed attorney with 20+ years of courtroom and corporate
-              experience.
+              Board-ready due diligence, transaction execution, and concession strategy — EU standards, Montenegro know-how.
+              Reports prepared by a licensed attorney with 20+ years of courtroom and corporate experience.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
-              {/* Apsolutni hash linkovi da rade sa svih ruta */}
-              <a
-                href="/#contact"
-                className="inline-flex items-center justify-center rounded-full bg-accent text-white px-6 py-3"
-                aria-label="Request a project proposal"
-              >
+              <a href="/#contact" className="inline-flex items-center justify-center rounded-full bg-accent text-white px-6 py-3">
                 Request Proposal
               </a>
-              <a
-                href="/#method"
-                className="inline-flex items-center justify-center rounded-full border border-gray-300 px-6 py-3 hover:bg-white"
-                aria-label="See how we work"
-              >
+              <a href="/#method" className="inline-flex items-center justify-center rounded-full border border-gray-300 px-6 py-3 hover:bg-white">
                 How we work
               </a>
-              {/* NEW: diskretni CTA ka /book */}
-              <a
-                href="/book"
-                className="inline-flex items-center justify-center rounded-full border border-gray-300 px-6 py-3 hover:bg-white"
-                aria-label="Book a 30-minute Zoom call"
-              >
+              <Link href="/book" className="inline-flex items-center justify-center rounded-full border border-gray-300 px-6 py-3 hover:bg-white">
                 Book Intro Call
-              </a>
+              </Link>
             </div>
             <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-subtle">
               <li>Montenegrin Bar (since 2004)</li>
               <li>World Triathlon Tribunal</li>
-              <li>20+ years litigation &amp; transactions</li>
+              <li>20+ years litigation & transactions</li>
               <li>GDPR-compliant</li>
             </ul>
           </div>
@@ -70,12 +40,8 @@ export default function HomePage() {
       {/* Services */}
       <Section id="services">
         <div className="container">
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">
-            Services
-          </h2>
-        <p className="mt-3 text-center text-subtle">
-            Focused. High-impact. Built for investment decisions.
-          </p>
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">Services</h2>
+          <p className="mt-3 text-center text-subtle">Focused. High-impact. Built for investment decisions.</p>
 
           <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -100,10 +66,7 @@ export default function HomePage() {
                   "Arbitration-minded, discreet representation aligned with transaction goals and enforcement realities.",
               },
             ].map((card) => (
-              <article
-                key={card.title}
-                className="bg-white border border-gray-200 rounded-2xl p-6"
-              >
+              <article key={card.title} className="bg-white border border-gray-200 rounded-2xl p-6">
                 <h3 className="text-xl font-semibold">{card.title}</h3>
                 <p className="mt-2 text-sm text-subtle">{card.text}</p>
               </article>
@@ -115,9 +78,7 @@ export default function HomePage() {
       {/* Method */}
       <Section id="method" className="bg-white border-y border-gray-200">
         <div className="container py-16">
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">
-            Method
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">Method</h2>
           <p className="mt-3 text-center text-subtle">Four steps. No noise.</p>
 
           <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -127,10 +88,7 @@ export default function HomePage() {
               { n: 3, t: "RAG Matrix", d: "Red/Amber/Green findings with actions, owners, deadlines." },
               { n: 4, t: "Closing Support", d: "CP/CS run-through, sign/close logistics, post-deal remedies." },
             ].map((s) => (
-              <div
-                key={s.n}
-                className="text-center p-6 rounded-xl border border-gray-200"
-              >
+              <div key={s.n} className="text-center p-6 rounded-xl border border-gray-200">
                 <div className="mx-auto w-10 h-10 rounded-full bg-black text-white flex items-center justify-center font-semibold">
                   {s.n}
                 </div>
@@ -142,52 +100,78 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Fees */}
+      {/* Fees (reworked) */}
       <Section id="fees">
         <div className="container">
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">
-            Transparent Fees
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">Transparent Fees</h2>
           <p className="mt-3 text-center text-subtle">Clear ranges. Serious intent.</p>
 
-          <div className="mt-10 grid md:grid-cols-3 gap-6">
-            <div className="bg-white border border-gray-200 rounded-2xl p-8">
+          <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Basic */}
+            <div className="card">
               <h3 className="text-xl font-semibold">Basic Due Diligence</h3>
-              <p className="mt-2 text-2xl font-semibold">€7.5k</p>
-              <p className="mt-2 text-sm text-subtle">
-                Focused high-level review of key legal domains and red flags for smaller tickets.
-              </p>
+              <ul className="mt-3 text-sm text-subtle list-disc pl-5 space-y-1">
+                <li>Focused red-flags across core legal areas</li>
+                <li>2–3 stakeholder interviews</li>
+                <li>Concise report with prioritized actions</li>
+              </ul>
+              <p className="mt-5 font-semibold">Starting from €7.500</p>
             </div>
-            <div className="bg-white border-2 border-black rounded-2xl p-8 shadow-sm">
+
+            {/* Standard */}
+            <div className="card card-strong">
               <h3 className="text-xl font-semibold">Standard Due Diligence</h3>
-              <p className="mt-2 text-2xl font-semibold">€15k–€25k</p>
-              <p className="mt-2 text-sm text-subtle">
-                Comprehensive corporate, regulatory, and property law review for mid-sized transactions.
-              </p>
+              <ul className="mt-3 text-sm text-subtle list-disc pl-5 space-y-1">
+                <li>Full-scope corporate, regulatory, property</li>
+                <li>Contract review + warranties/indemnities map</li>
+                <li>Closing-ready schedules and checklists</li>
+              </ul>
+              <p className="mt-5 font-semibold">Starting from €15.000</p>
             </div>
-            <div className="bg-white border border-gray-200 rounded-2xl p-8">
+
+            {/* Premium */}
+            <div className="card">
               <h3 className="text-xl font-semibold">Premium Due Diligence</h3>
-              <p className="mt-2 text-2xl font-semibold">€30k–€50k+</p>
-              <p className="mt-2 text-sm text-subtle">
-                Complex, high-value deals, deep research, schedules, and on-site coordination.
+              <ul className="mt-3 text-sm text-subtle list-disc pl-5 space-y-1">
+                <li>Complex targets and multi-party transactions</li>
+                <li>Deep research + regulator liaison strategy</li>
+                <li>On-site coordination & negotiation support</li>
+              </ul>
+              <p className="mt-5 font-semibold">Starting from €30.000</p>
+            </div>
+
+            {/* Custom */}
+            <div className="card">
+              <h3 className="text-xl font-semibold">Custom</h3>
+              <ul className="mt-3 text-sm text-subtle list-disc pl-5 space-y-1">
+                <li>Tailored scope for your specific deal</li>
+                <li>Mix & match: DD, execution, PPP/concessions</li>
+                <li>Fixed fee or blended model after scoping call</li>
+              </ul>
+              <p className="mt-5">
+                <Link href="/#contact" className="underline hover:no-underline">
+                  Tell us your goals → get a proposal
+                </Link>
               </p>
             </div>
           </div>
         </div>
       </Section>
 
-      {/* About */}
+      {/* About (expanded) */}
       <Section id="about" className="bg-white border-y border-gray-200">
         <div className="container py-16">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">About</h2>
           <p className="mt-4 text-subtle leading-relaxed max-w-3xl">
-            Licensed attorney with 20+ years across courtroom litigation and complex corporate transactions.
-            Member of the World Triathlon Tribunal. Reports are concise, source-anchored, and decision-oriented.
+            Licensed attorney with more than two decades across litigation and complex corporate work.
+            I lead MNE Consulting to help EU investors navigate the Montenegrin legal landscape with clarity and
+            confidence — combining local knowledge with international standards and board-level outputs in English.
           </p>
-          <ul className="mt-6 space-y-2 text-sm text-subtle">
-            <li>• High-profile corporate and concession matters</li>
-            <li>• Cross-border coordination with EU counsel</li>
-            <li>• Board-ready outputs in English</li>
+          <ul className="mt-6 space-y-2 text-sm text-subtle max-w-3xl">
+            <li>• Member of the Montenegrin Bar since 2004; Managing Partner experience.</li>
+            <li>• Member, World Triathlon Tribunal (international sports governance).</li>
+            <li>• Founder of Ugovor24 (legal-tech platform for contract automation).</li>
+            <li>• University of Bologna — advanced legal studies.</li>
           </ul>
         </div>
       </Section>
@@ -195,29 +179,20 @@ export default function HomePage() {
       {/* Contact */}
       <Section id="contact">
         <div className="container">
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">
-            Contact
-          </h2>
-          <p className="mt-3 text-center text-subtle">
-            All inquiries are treated as strictly confidential under attorney–client privilege.
-          </p>
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">Contact</h2>
+          <p className="mt-3 text-center text-subtle">All inquiries are treated as strictly confidential under attorney–client privilege.</p>
           <div className="mx-auto mt-10 max-w-2xl bg-white border border-gray-200 rounded-2xl p-6">
             <ContactForm />
             <div className="mt-4 text-sm text-subtle">
-              We reply within 1–2 business days. Confidential by default.
+              Prefer to speak live?{" "}
+              <Link className="underline hover:no-underline" href="/book">
+                Book a 30-min Zoom
+              </Link>
+              .
             </div>
           </div>
-
-          {/* NEW: diskretan link ka /book ispod forme */}
-          <p className="mt-3 text-sm text-subtle text-center">
-            Prefer to book a call?{" "}
-            <a href="/book" className="underline">
-              Book a 30-min Zoom
-            </a>
-            .
-          </p>
         </div>
       </Section>
-    </main>
+    </>
   );
 }
