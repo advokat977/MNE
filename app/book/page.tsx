@@ -1,11 +1,17 @@
 // app/book/page.tsx
-import CalEmbed from "./CalEmbed";
-
 export const metadata = {
   title: "Book Intro Consult — MNE Consulting",
   description: "Schedule a 30-minute Zoom call with MNE Consulting.",
+  openGraph: {
+    title: "Book Intro Consult — MNE Consulting",
+    description: "Schedule a 30-minute Zoom call with MNE Consulting.",
+    url: "https://mneconsulting.org/book",
+    type: "website",
+  },
   alternates: { canonical: "/book" },
 };
+
+const CAL_URL = "https://cal.com/mneconsulting/30min?theme=system";
 
 export default function BookPage() {
   return (
@@ -22,7 +28,16 @@ export default function BookPage() {
           </a>
           .
         </p>
-        <CalEmbed />
+
+        <div className="mt-8 rounded-2xl border border-gray-200 overflow-hidden">
+          <iframe
+            src={CAL_URL}
+            title="Book a call"
+            loading="lazy"
+            style={{ width: "100%", height: "900px", border: 0 }}
+            allow="camera; microphone; fullscreen; clipboard-read; clipboard-write"
+          />
+        </div>
       </div>
     </section>
   );
