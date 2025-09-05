@@ -1,6 +1,5 @@
-// app/page.tsx
-import Section from "../components/Section";
-import ContactForm from "../components/ContactForm";
+import Section from "./components/Section";
+import ContactForm from "./components/ContactForm";
 
 export const metadata = {
   title: "MNE Consulting — Trusted Local Counsel for EU Investors",
@@ -27,19 +26,21 @@ export default function HomePage() {
               Trusted Local Counsel for EU Investors in Montenegro
             </h1>
             <p className="mt-5 text-lg text-subtle max-w-prose">
-              Board-ready due diligence, transaction execution, and concession strategy — EU standards, Montenegro know-how.
-              Reports prepared by a licensed attorney with 20+ years of courtroom and corporate experience.
+              Board-ready due diligence, transaction execution, and concession strategy — EU
+              standards, Montenegro know-how. Reports prepared by a licensed attorney with 20+ years
+              of courtroom and corporate experience.
             </p>
+
+            {/* All CTAs: light style */}
             <div className="mt-7 flex flex-wrap gap-3">
-              {/* svi CTA-ovi svijetli */}
               <a
-                href="#contact"
+                href="/#contact"
                 className="inline-flex items-center justify-center rounded-full border border-gray-300 bg-white px-6 py-3 text-sm font-medium text-gray-900 shadow-sm hover:bg-white hover:shadow transition"
               >
                 Request Proposal
               </a>
               <a
-                href="#method"
+                href="/#method"
                 className="inline-flex items-center justify-center rounded-full border border-gray-300 bg-white px-6 py-3 text-sm font-medium text-gray-900 shadow-sm hover:bg-white hover:shadow transition"
               >
                 How we work
@@ -51,10 +52,11 @@ export default function HomePage() {
                 Book Zoom Call
               </a>
             </div>
+
             <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-subtle">
               <li>Montenegrin Bar (since 2004)</li>
               <li>World Triathlon Tribunal</li>
-              <li>20+ years litigation & transactions</li>
+              <li>20+ years litigation &amp; transactions</li>
               <li>GDPR-compliant</li>
             </ul>
           </div>
@@ -65,7 +67,9 @@ export default function HomePage() {
       <Section id="services">
         <div className="container">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">Services</h2>
-          <p className="mt-3 text-center text-subtle">Focused. High-impact. Built for investment decisions.</p>
+          <p className="mt-3 text-center text-subtle">
+            Focused. High-impact. Built for investment decisions.
+          </p>
 
           <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -127,8 +131,10 @@ export default function HomePage() {
       {/* Fees */}
       <Section id="fees">
         <div className="container">
-          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">Transparent Fees</h2>
-        <p className="mt-3 text-center text-subtle">Clear ranges. Serious intent.</p>
+          <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">
+            Transparent Fees
+          </h2>
+          <p className="mt-3 text-center text-subtle">Clear ranges. Serious intent.</p>
 
           <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -168,7 +174,7 @@ export default function HomePage() {
                   "Fixed fee or blended model after scoping call",
                 ],
                 price: (
-                  <a href="#contact" className="underline hover:no-underline">
+                  <a href="/#contact" className="underline hover:no-underline">
                     Tell us your goals → get a proposal
                   </a>
                 ),
@@ -200,10 +206,18 @@ export default function HomePage() {
         <div className="container py-16">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">About</h2>
           <p className="mt-4 text-subtle leading-relaxed max-w-3xl">
-            With over two decades of practice, Dejan Radinović has advised the Government of Montenegro and leading international corporations on some of the country’s most significant privatizations and investment projects. His track record includes high-stakes due diligence exercises, complex M&A transactions, and representation in international arbitration disputes exceeding €800 million.
+            With over two decades of practice, Dejan Radinović has advised the Government of
+            Montenegro and leading international corporations on some of the country’s most
+            significant privatizations and investment projects. His track record includes
+            high-stakes due diligence exercises, complex M&amp;A transactions, and representation
+            in international arbitration disputes exceeding €800 million.
           </p>
           <p className="mt-4 text-subtle leading-relaxed max-w-3xl">
-            Dejan combines deep knowledge of Montenegrin law with an understanding of EU regulatory standards, offering investors rare clarity at the intersection of local rules and cross-border business. This background ensures that each report delivered by MNE Consulting is both source-anchored and board-ready — a decisive advantage for EU clients evaluating opportunities in Montenegro.
+            Dejan combines deep knowledge of Montenegrin law with an understanding of EU regulatory
+            standards, offering investors rare clarity at the intersection of local rules and
+            cross-border business. This background ensures that each report delivered by MNE
+            Consulting is both source-anchored and board-ready — a decisive advantage for EU clients
+            evaluating opportunities in Montenegro.
           </p>
           <ul className="mt-6 space-y-2 text-sm text-subtle">
             <li>• Member of the Montenegrin Bar since 2004; Managing Partner experience.</li>
@@ -218,13 +232,11 @@ export default function HomePage() {
       <Section id="contact">
         <div className="container">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">Contact</h2>
-          <p className="mt-3 text-center text-subtle">All inquiries are treated as strictly confidential under attorney–client privilege.</p>
+          <p className="mt-3 text-center text-subtle">
+            All inquiries are treated as strictly confidential under attorney–client privilege.
+          </p>
           <div className="mx-auto mt-10 max-w-2xl bg-white border border-gray-200 rounded-2xl p-6">
             <ContactForm />
-            {/* Jedna napomena, van forme */}
-            <div className="mt-4 text-sm text-subtle">
-              Prefer to speak live? <a className="underline hover:no-underline" href="/book">Book a 30-min Zoom</a>.
-            </div>
           </div>
         </div>
       </Section>
